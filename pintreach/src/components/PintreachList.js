@@ -3,10 +3,10 @@ import React from "react";
 function PintreachList(props) {
   return (
     <ul>
-      {props.pintreach.map(pin => <pintreach key= {pin.id} pin={pin}/>
+      {props.articles.map(article => <h2 key={article.id}>{article.title}</h2>)}
       
       
-      )}
+      
 
     </ul>
   );

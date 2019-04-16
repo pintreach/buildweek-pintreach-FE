@@ -31,7 +31,7 @@ class App extends Component {
           </li>
         </ul>
         <h1>pintreach</h1>
-        <Route exact path="/" components={Login} />
+        <Route exact path="/" component={Login} />
 
         <Route
           path="/PintreachForm"
