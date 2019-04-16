@@ -1,0 +1,20 @@
+.pintreachForm{
+    display: flex;
+   margin: 100px 0;
+}
+.pintreachList{
+    display: flex;
+    margin: 0 40px;
+    background-color: #6195ED;
+    border: 2px solid black;
+    align-items: center;
+}
+.Forms{
+    
+    background-color: #6195ED;
+
+}
+form{
+    padding: 50px 0;
+    margin:  50px 0;
+}

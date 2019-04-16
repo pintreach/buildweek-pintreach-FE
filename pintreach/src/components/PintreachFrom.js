@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import PintreachList from "./PintreachList";
+import "./Pintreach.css"
 class PintreachForm extends React.Component {
   constructor() {
     super();
@@ -68,19 +69,31 @@ class PintreachForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <PintreachList articles={this.state.articles} /> )}/>
-        </div>
+      <div className="pintreachForm">
+        <div className="Forms">
         <form onSubmit={this.addPintreach}>
           <input
             type="text"
             value={this.state.img}
             pin="pin"
             onChange={this.handleChanges}
-            placeholder="Pintreach"
+            placeholder="img"
           />
-          <button type="">Add new page</button>
+            <input
+            type="text"
+            value={this.state.title}
+            pin="pin"
+            onChange={this.handleChanges}
+            placeholder="title"
+          />
+             <input
+            type="text"
+            value={this.state.url}
+            pin="pin"
+            onChange={this.handleChanges}
+            placeholder="url"
+          />
+          <button type="">Add new article</button>
         </form>
         <form onSubmit={this.deletePintreach}>
           <input
@@ -88,10 +101,14 @@ class PintreachForm extends React.Component {
             value={this.state.title}
             pin="pin"
             onChange={this.handleChanges}
-            placeholder="Delete"
+            placeholder="Delete Article"
           />
-          <button type="">Delete page</button>
+          <button type="">Delete </button>
         </form>
+        </div>
+        <div className="pintreachList">
+          <PintreachList articles={this.state.articles} /> )}/>
+        </div>
       </div>
     );
   }
