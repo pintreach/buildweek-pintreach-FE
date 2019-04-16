@@ -18,47 +18,13 @@ class App extends Component {
     axios
       .get("")
 
-      .then(data => {
-        this.setState({ pintreach: data.results });
+      .then(res => {
+        this.setState({ pintreach: res.data.pintreach });
       })
       .catch(err => {
         throw new Error(err);
       });
   }
-
-  addPintreach = item => {
-    axios
-      .post("" / item)
-      .then(res => {
-        this.setState({
-          addPintreachSuccess: res.data.pintreach
-        });
-      })
-      .catch(err => {
-        throw new Error(err);
-      });
-  };
-
-  clearCompleted = e => {
-    e.preventDefault();
-    this.setState({
-      pintreach: this.state.pintreach.filter(pin => !pin.completed)
-    });
-  };
-
-  togglePintreach = pinId => {
-    this.setState({
-      pintreach: this.state.pintreach.map(pin => {
-        if (pinId === pin.id) {
-          return {
-            ...pin,
-            completed: !pin.completed
-          };
-        }
-        return pin;
-      })
-    });
-  };
 
   handleChanges = e => {
     this.setState({ input: e.target.value });
@@ -68,14 +34,21 @@ class App extends Component {
     return (
       <div className="App">
         <h1>pintreach</h1>
-
-        {/* <Route exact path= "/" components={Login}/>
-        <PintreachList pintreach={this.state.pintreach} />
-        <PintreachForm
-          addPintreach={this.addPintreach}
-          addPintreachSussess={this.state.addPintreachSuccess}
-          
-        /> */}
+        /* <Route exact path="/" components={Login} />
+        <Route
+          path="/pintreachList"
+          render={props => <PintreachList pintreach={this.state.pintreach} />}
+        />
+        <Route
+          path="/PintreachForm"
+          render={props => (
+            <PintreachForm
+              addPintreach={this.addPintreach}
+              addPintreachSussess={this.state.addPintreachSuccess}
+            />
+          )}
+        />{" "}
+        */
       </div>
     );
   }

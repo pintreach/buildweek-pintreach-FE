@@ -1,14 +1,49 @@
 import React, { Component } from "react";
+import axios from "axios";
+
 
 class Login extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      username: "",
-      password: ""
+      login: {
+        username: "",
+        password: ""
+      }
     };
   }
+  componentDidMount() {
+
+    axios
+      .get("https://pintereach-buildweek.herokuapp.com/users")
+
+      .then(res => {
+        this.setState({ login: res.data });
+      })
+      .catch(err => {
+        throw new Error(err);
+      });
+  }
+  addUser = e => {
+    e.preventDefault();
+    const item = {
+      username: "test3",
+      password: "test",
+      name: "Test User",
+      email: "testing3@testingemail.com"
+    };
+    axios
+      .post("https://pintereach-buildweek.herokuapp.com/auth/register", item)
+      .then(res => {
+        this.setState({
+          addUserSuccess: res.data
+        });
+      })
+      .catch(err => {
+        throw new Error(err);
+      });
+  };
   handleChange = e => {
     this.setState({
       credentials: {
@@ -20,10 +55,12 @@ class Login extends Component {
 
   login = e => {
     e.preventDefault();
+    this.login.map(log => {``})
     this.props.login(this.state.credentials).then(() => {
       this.props.history.push("/protected");
     });
   };
+
   render() {
     return (
       <div>
@@ -40,7 +77,7 @@ class Login extends Component {
             value={this.state.credentials.password}
             onChange={this.handleChange}
           />
-          <button>{this.props.loggingIn}</button>
+          <button onSubmit={this.login} />
         </form>
       </div>
     );
