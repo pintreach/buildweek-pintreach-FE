@@ -17,7 +17,7 @@ class App extends Component {
   }
   componentDidMount(){
     if (localStorage.getItem('authorization')){
-      this.setState({[this.state.loggedIn]: true})
+      this.setState({loggedIn: true})
     }
   }
   render() {
