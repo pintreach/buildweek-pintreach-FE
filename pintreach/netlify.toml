@@ -1,0 +1,4 @@
+[build]
+base = "pintreach/"
+publish = "pintreach/build/"
+command = "yarn build"
