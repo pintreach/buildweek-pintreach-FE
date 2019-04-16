@@ -2,7 +2,7 @@ import "./App.css";
 import React, { Component } from "react";
 import PintreachForm from "./components/PintreachFrom";
 import { Route, NavLink } from "react-router-dom";
-
+import logo from './components/logo.png'
 import Login from "./components/Login";
 import Register from "./components/Register";
 
@@ -23,6 +23,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        
         <ul className="navbar">
           <li>
             <NavLink exact to="/login" activeClassName="activeNavButton">
@@ -38,9 +39,13 @@ class App extends Component {
             <NavLink to="/PintreachForm" activeClassName="activeNavButton">
               PintreachForm
             </NavLink>
-          </li>
+          </div>
+          <div>
+          <a href="http://pintereachui.netlify.com/">Home</a>
+          </div>
+
         </ul>
-        <h1>Pintreach</h1>
+        <h1>Know whats going on in your field</h1>
         <Route path="/login" component={Login} />
         <Route path="/register" render={props=><Register {...props}/>} />
         <Route
