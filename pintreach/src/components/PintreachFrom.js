@@ -39,7 +39,7 @@ class PintreachForm extends React.Component {
         });
     };
 
-    deletePintreach = item => {
+    deletePintreach = id => {
     axios
     .delete(` ${id}`)
     .then(res => {
@@ -69,7 +69,7 @@ class PintreachForm extends React.Component {
     
     render() {
       return (
-        
+       <div>
       <form onSubmit={this.addPintreach}>
         <input
         type="text"
@@ -92,7 +92,7 @@ class PintreachForm extends React.Component {
           <button type="">Delete page</button>
          
           </form> 
-        
+          </div> 
     );
 }
 }

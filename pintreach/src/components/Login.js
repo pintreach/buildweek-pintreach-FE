@@ -55,7 +55,8 @@ class Login extends Component {
 
   login = e => {
     e.preventDefault();
-    this.login.map(log => {``})
+    this.login.map(log => <Login key= {log.id} log={log}/>)
+
     this.props.login(this.state.credentials).then(() => {
       this.props.history.push("/protected");
     });
