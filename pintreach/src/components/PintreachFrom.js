@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from "axios";
-
+import PintreachList from "./PintreachList"
 class PintreachForm extends React.Component {
     constructor() {
       super();
@@ -70,6 +70,9 @@ class PintreachForm extends React.Component {
     render() {
       return (
        <div>
+         <div>
+         <PintreachList pintreach={this.state.pintreach} /> )}/>
+         </div>
       <form onSubmit={this.addPintreach}>
         <input
         type="text"

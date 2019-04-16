@@ -1,6 +1,5 @@
 import React from "react";
-
-import PintreachForm from "./PintreachFrom";
+import PintreachForm from "./PintreachFrom"
 function PintreachList(props) {
   return (
     <ul>

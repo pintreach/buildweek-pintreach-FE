@@ -64,7 +64,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
+      
         <form onSubmit={this.login}>
           <input
             type="text"
@@ -73,14 +73,14 @@ class Login extends Component {
             onChange={this.handleChange}
           />
           <input
-            type="password"
+            type="text"
             name="password"
             value={this.state.credentials.password}
             onChange={this.handleChange}
           />
           <button onSubmit={this.login} />
         </form>
-      </div>
+      
     );
   }
 }
