@@ -39,7 +39,7 @@ class App extends Component {
             <NavLink to="/PintreachForm" activeClassName="activeNavButton">
               PintreachForm
             </NavLink>
-          </div>
+          </li>
           <div>
           <a href="http://pintereachui.netlify.com/">Home</a>
           </div>
