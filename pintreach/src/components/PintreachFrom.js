@@ -31,11 +31,8 @@ class PintreachForm extends React.Component {
 		};
 		axios
 			.post('https://pintereach-buildweek.herokuapp.com/articles', item)
-			.then((res) => {
-				this.setState({
-					addPintreachSuccess: res.data
-				});
-			})
+			.then((res) => console.log(res.status))
+			
 			.catch((err) => {
 				throw new Error(err);
 			});
