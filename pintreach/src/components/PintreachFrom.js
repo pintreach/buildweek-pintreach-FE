@@ -5,14 +5,7 @@ class PintreachForm extends React.Component {
     constructor() {
       super();
       this.state = {
-        pintreach: {
-            img: '',
-            title: '',
-            website: '',
-            id: ''
-
-            
-        }
+        pintreach: []
       };
     }
     componentDidMount() {
@@ -26,7 +19,13 @@ class PintreachForm extends React.Component {
           throw new Error(err);
         });
     }
-    addPintreach = item => {
+    addPintreach = e  => {
+      const item = {
+        img: '',
+        title: '',
+        website: '',
+        id: ''
+      };
       axios
         .post("", item)
         .then(res => {
@@ -99,4 +98,5 @@ class PintreachForm extends React.Component {
     );
 }
 }
+
 export default PintreachForm;
