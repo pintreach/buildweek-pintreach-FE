@@ -1,12 +1,12 @@
 import React from "react";
-import Pintreach from "./Pin";
+
 function PintreachList(props) {
   return (
     <ul>
-      {props.pintreach.map(pin => <Pintreach key= {pin.id} pin={pin} togglePintreach={props.togglePintreach}/>
+      {props.articles.map(article => <h2 key={article.id}>{article.title}</h2>)}
       
       
-      )}
+      
 
     </ul>
   );
