@@ -2,14 +2,29 @@ import React from 'react';
 import axios from "axios";
 
 class PintreachForm extends React.Component {
-    constructor(props) {
-      super(props);
+    constructor() {
+      super();
       this.state = {
-        pin: {
-            img: 'img'
+        pintreach: {
+            img: '',
+            title: '',
+            website: '',
+            id: ''
+
             
         }
       };
+    }
+    componentDidMount() {
+      axios
+        .get("")
+  
+        .then(res => {
+          this.setState({ pintreach: res.data.pintreach });
+        })
+        .catch(err => {
+          throw new Error(err);
+        });
     }
     addPintreach = item => {
       axios
@@ -27,20 +42,24 @@ class PintreachForm extends React.Component {
     deletePintreach = item => {
     axios
     .delete(` ${id}`)
-    .then(res)
+    .then(res => {
+      this.setState({
+        deletePintreach: res.data.pintreach
+      })
+    })
     .catch(err => {
       throw new Error(err);
     });
     }
     handleChanges = e => {
-        this.setState({ pin: e.target.value });
+        this.setState({ pintreach: e.target.value });
        
     };
 
 
  addPintreach = e => {
      e.preventDefault();
-     this.addPintreach(this.state.pin)
+     this.addPintreach(this.state.pintreach)
  }
 
  deletePintreach = e => {
@@ -65,7 +84,7 @@ class PintreachForm extends React.Component {
           <form onSubmit={this.deletePintreach}>
           <input
           type="text"
-          value={this.state.pin}
+          value={this.state.pintreach}
           pin="pin"
           onChange={this.handleChanges}
           placeholder="Delete"

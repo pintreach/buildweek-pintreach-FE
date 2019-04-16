@@ -11,24 +11,11 @@ class App extends Component {
     super();
     this.state = {
       pintreach: [],
-      input: ""
+      
     };
   }
-  componentDidMount() {
-    axios
-      .get("")
 
-      .then(res => {
-        this.setState({ pintreach: res.data.pintreach });
-      })
-      .catch(err => {
-        throw new Error(err);
-      });
-  }
 
-  handleChanges = e => {
-    this.setState({ input: e.target.value });
-  };
 
   render() {
     return (
@@ -43,12 +30,8 @@ class App extends Component {
           path="/PintreachForm"
           render={props => (
             <PintreachForm
-              addPintreach={this.addPintreach}
-              addPintreachSussess={this.state.addPintreachSuccess}
-            />
-          )}
-        />{" "}
-        */
+            pintreach={this.state.pintreach} /> )}
+        />
       </div>
     );
   }
