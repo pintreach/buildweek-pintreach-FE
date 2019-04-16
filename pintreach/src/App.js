@@ -2,7 +2,7 @@ import "./App.css";
 import React, { Component } from "react";
 import PintreachForm from "./components/PintreachFrom";
 import { Route, NavLink } from "react-router-dom";
-import logo from './components/logo.png'
+import logo from './components/logo.png';
 import Login from "./components/Login";
 import Register from "./components/Register";
 
@@ -25,24 +25,27 @@ class App extends Component {
       <div className="App">
         
         <ul className="navbar">
-          <li>
+        <ul>
+        <img src={logo} alt="Logo" />
+        </ul>
+          <ul>
             <NavLink exact to="/login" activeClassName="activeNavButton">
               Login
             </NavLink>
-          </li>
-          <li>
+          </ul>
+          <ul>
             <NavLink exact to="/register" activeClassName="activeNavButton">
               Register
             </NavLink>
-          </li>
-          <li>
+          </ul>
+          <ul>
             <NavLink to="/PintreachForm" activeClassName="activeNavButton">
               PintreachForm
             </NavLink>
-          </li>
-          <div>
+          </ul>
+          <ul>
           <a href="http://pintereachui.netlify.com/">Home</a>
-          </div>
+          </ul>
 
         </ul>
         <h1>Know whats going on in your field</h1>
