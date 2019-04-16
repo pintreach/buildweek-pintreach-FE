@@ -1,7 +1,7 @@
-import React from "react";
-import axios from "axios";
-import PintreachList from "./PintreachList";
-import "./Pintreach.css"
+import React from 'react';
+import axios from 'axios';
+import PintreachList from './PintreachList';
+import './Pintreach.css';
 
 class PintreachForm extends React.Component {
 	constructor() {
@@ -64,56 +64,57 @@ class PintreachForm extends React.Component {
 		this.deletePintreach('');
 	};
 
-  deletePintreach = e => {
-    e.preventDefault();
-    this.deletePintreach("");
-  };
+	deletePintreach = (e) => {
+		e.preventDefault();
+		this.deletePintreach('');
+	};
 
-  render() {
-    return (
-      <div className="pintreachForm">
-        <div className="Forms">
-        <form onSubmit={this.addPintreach}>
-          <input
-            type="text"
-            value={this.state.img}
-            pin="pin"
-            onChange={this.handleChanges}
-            placeholder="img"
-          />
-            <input
-            type="text"
-            value={this.state.title}
-            pin="pin"
-            onChange={this.handleChanges}
-            placeholder="title"
-          />
-             <input
-            type="text"
-            value={this.state.url}
-            pin="pin"
-            onChange={this.handleChanges}
-            placeholder="url"
-          />
-          <button type="">Add new article</button>
-        </form>
-        <form onSubmit={this.deletePintreach}>
-          <input
-            type="text"
-            value={this.state.title}
-            pin="pin"
-            onChange={this.handleChanges}
-            placeholder="Delete Article"
-          />
-          <button type="">Delete </button>
-        </form>
-        </div>
-        <div className="pintreachList">
-          <PintreachList articles={this.state.articles} /> )}/>
-        </div>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div className="pintreachForm">
+				<div className="Forms">
+					<form onSubmit={this.addPintreach}>
+						<input
+							type="text"
+							value={this.state.img}
+							pin="pin"
+							onChange={this.handleChanges}
+							placeholder="img"
+						/>
+						<input
+							type="text"
+							value={this.state.title}
+							pin="pin"
+							onChange={this.handleChanges}
+							placeholder="title"
+						/>
+						<input
+							type="text"
+							value={this.state.url}
+							pin="pin"
+							onChange={this.handleChanges}
+							placeholder="url"
+						/>
+						<button type="">Add new article</button>
+					</form>
+					<form onSubmit={this.deletePintreach}>
+						<input
+							type="text"
+							value={this.state.title}
+							pin="pin"
+							onChange={this.handleChanges}
+							placeholder="Delete Article"
+						/>
+						<button type="">Delete </button>
+					</form>
+				</div>
+				<div className="pintreachList">
+          {this.state.articles.map(article=>
+            <PintreachList key={article.id} article={article} />)}
+				</div>
+			</div>
+		);
+	}
 }
 
 export default PintreachForm;

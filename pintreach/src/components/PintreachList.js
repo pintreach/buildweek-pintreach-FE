@@ -1,15 +1,14 @@
-import React from "react";
+import React from 'react';
 
 function PintreachList(props) {
-  return (
-    <ul>
-      {props.articles.map(article => <h3 key={article.id}>{article.title}</h3>)}
-      
-      
-      
-
-    </ul>
-  );
+  const {title, url,img, id} = props.article
+	return (
+		<div>
+			<h3>{title}</h3>
+			<a href={url}>Read</a>
+			<img src={img} />
+		</div>
+	);
 }
 
 export default PintreachList;
