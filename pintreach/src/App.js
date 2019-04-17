@@ -27,8 +27,7 @@ class App extends Component {
         <h1>Know whats going on in your field</h1>
         <Route path="/login" component={Login} />
         <Route path="/register" render={props=><Register {...props}/>} />
-        <Route
-          path="/"
+        <Route exact path="/"
           render={() => <Articles pintreach={this.state.pintreach} />}
         />
       </div>
