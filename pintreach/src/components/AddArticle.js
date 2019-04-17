@@ -5,10 +5,9 @@ class AddArticle extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			img: '',
+			type: '',
 			title: '',
-			url: '',
-			user_id: null
+			url: ''
 		};
 	}
 	addArticle = (e) => {
@@ -20,7 +19,7 @@ class AddArticle extends React.Component {
 				'https://pintereach-buildweek.herokuapp.com/articles',
 				{
 					title: this.state.title,
-					img: this.state.img,
+					url: this.state.url,
 					user_id: id,
 					type: this.state.type
 				},
@@ -63,7 +62,7 @@ class AddArticle extends React.Component {
                   value={this.state.type}
                   className='review__modal--form--rating'
                 >
-                  <option defaultvalue='medicine'>medicine</option>
+                  <option defaultValue='medicine'>medicine</option>
                   <option value='physics'>physics</option>
                   <option value='biology'>biology</option>
                   <option value='economics'>economics</option>
