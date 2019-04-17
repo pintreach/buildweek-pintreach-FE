@@ -5,10 +5,9 @@ class AddArticle extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			img: '',
+			type: '',
 			title: '',
-			url: '',
-			user_id: null
+			url: ''
 		};
 	}
 	addArticle = (e) => {
@@ -20,9 +19,9 @@ class AddArticle extends React.Component {
 				'https://pintereach-buildweek.herokuapp.com/articles',
 				{
 					title: this.state.title,
-					img: this.state.img,
+					url: this.state.url,
 					user_id: id,
-					url: this.state.url
+					type: this.state.type
 				},
 				{
 					headers: { 'authorization': token }
@@ -45,13 +44,6 @@ class AddArticle extends React.Component {
 				<form onSubmit={this.addArticle}>
 					<input
 						type="text"
-						name="img"
-						value={this.state.img}
-						onChange={this.handleChange}
-						placeholder="img"
-					/>
-					<input
-						type="text"
 						name="title"
 						value={this.state.title}
 						onChange={this.handleChange}
@@ -64,6 +56,20 @@ class AddArticle extends React.Component {
 						onChange={this.handleChange}
 						placeholder="url"
 					/>
+          <select
+                  onChange={this.handleChange}
+                  name='type'
+                  value={this.state.type}
+                  className='review__modal--form--rating'
+                >
+                  <option defaultValue='medicine'>medicine</option>
+                  <option value='physics'>physics</option>
+                  <option value='biology'>biology</option>
+                  <option value='economics'>economics</option>
+                  <option value='chemistry'>chemistry</option>
+                  <option value='environmental science'>environmental science</option>
+                  <option value='computer science'>computer science</option>
+                </select>
 					<button onClick={this.addArticle}>Add new article</button>
 				</form>
 			</div>
