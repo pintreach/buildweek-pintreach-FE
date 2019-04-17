@@ -1,20 +1,37 @@
 .pintreachForm{
     display: flex;
    margin: 100px 0;
+   
+   padding: 20px;
 }
 .pintreachList{
     display: flex;
-    margin: 0 40px;
+    flex-wrap: wrap;
+    justify-content: center; 
+   padding: 20px;
+   margin: 20px;
     background-color: #6195ED;
     border: 2px solid black;
     align-items: center;
 }
 .Forms{
-    
+    height: 500px;
+    border: 2px solid black;
+    padding: 20px;
+    margin: 20px 0;
     background-color: #6195ED;
 
 }
 form{
     padding: 50px 0;
     margin:  50px 0;
+}
+.article-wrap{
+   border: 2px solid black;
+   padding: 20px;
+   margin: 20px;
+
+}
+input{
+    margin: 5px;
 }

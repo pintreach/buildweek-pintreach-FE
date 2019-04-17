@@ -23,16 +23,19 @@ class PintreachForm extends React.Component {
 			});
 	}
 	addPintreach = (e) => {
-		const item = {
+		const article = {
 			img: '',
 			title: '',
 			url: '',
 			userid: ''
 		};
 		axios
-			.post('https://pintereach-buildweek.herokuapp.com/articles', item)
-			.then((res) => console.log(res.status))
-			
+			.post('https://pintereach-buildweek.herokuapp.com/articles', article)
+			.then((res) => { 
+			console.log(res.status);
+			this.setState({ articles: res.data.article });
+			})
+	
 			.catch((err) => {
 				throw new Error(err);
 			});
@@ -43,7 +46,8 @@ class PintreachForm extends React.Component {
 			.delete(`https://pintereach-buildweek.herokuapp.com/articles ${id}`)
 			.then((res) => {
 				this.setState({
-					deletePintreach: res.data
+					
+					deletePintreach: res.data.articles
 				});
 			})
 			.catch((err) => {
@@ -51,10 +55,11 @@ class PintreachForm extends React.Component {
 			});
 	};
 	handleChanges = (e) => {
-		this.setState({ articles: e.target.value });
+		this.setState({ [e.target.articles]: e.target.value });
+		
 	};
 
-	addPintreach = (e) => {
+	addPintreach = e => {
 		e.preventDefault();
 		this.addPintreach(this.state.articles);
 	};
@@ -64,10 +69,7 @@ class PintreachForm extends React.Component {
 		this.deletePintreach('');
 	};
 
-	deletePintreach = (e) => {
-		e.preventDefault();
-		this.deletePintreach('');
-	};
+
 
 	render() {
 		return (
@@ -100,7 +102,7 @@ class PintreachForm extends React.Component {
 					<form onSubmit={this.deletePintreach}>
 						<input
 							type="text"
-							value={this.state.title}
+							value={this.state.articles.article}
 							pin="pin"
 							onChange={this.handleChanges}
 							placeholder="Delete Article"
