@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { Component } from "react";
-import Articles from "./components/Articles";
+import Articles from "./components/ArticleList";
 import { Route } from "react-router-dom";
 import Login from "./components/Login";
 import Register from "./components/Register";
