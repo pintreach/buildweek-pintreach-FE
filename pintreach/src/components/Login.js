@@ -1,88 +1,57 @@
-import React, { Component } from "react";
-import axios from "axios";
-
+import React, { Component } from 'react';
+import axios from 'axios';
 
 class Login extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      login: {
-        username: "",
-        password: ""
-      }
-    };
-  }
-  componentDidMount() {
-
-    axios
-      .get("https://pintereach-buildweek.herokuapp.com/users")
-
-      .then(res => {
-        this.setState({ login: res.data });
-      })
-      .catch(err => {
-        throw new Error(err);
-      });
-  }
-  addUser = e => {
+	constructor(props) {
+		super(props);
+		this.state = {
+			username: '',
+			password: '',
+			userID: null
+		};
+	}
+	componentDidMount() {
+	}
+	handleLogin = (e) => {
     e.preventDefault();
-    const item = {
-      username: "test3",
-      password: "test",
-      name: "Test User",
-      email: "testing3@testingemail.com"
-    };
-    axios
-      .post("https://pintereach-buildweek.herokuapp.com/auth/register", item)
-      .then(res => {
-        this.setState({
-          addUserSuccess: res.data
-        });
+		axios
+			.post('https://pintereach-buildweek.herokuapp.com/auth/login', {
+				username: this.state.username,
+				password: this.state.password
+			})
+			.then((res) =>{ 
+				localStorage.setItem('authorization', res.data.token)
+				localStorage.setItem('id', res.data.id)				
+        console.log(res.status)
       })
-      .catch(err => {
-        throw new Error(err);
-      });
-  };
-  handleChange = e => {
-    this.setState({
-      credentials: {
-        ...this.state.credentials,
-        [e.target.name]: e.target.value
-      }
-    });
-  };
-
-  login = e => {
-    e.preventDefault();
-    this.login.map(log => <Login key= {log.id} log={log}/>)
-
-    this.props.login(this.state.credentials).then(() => {
-      this.props.history.push("/protected");
-    });
-  };
-
-  render() {
-    return (
-      
-        <form onSubmit={this.login}>
-          <input
-            type="text"
-            name=
-            value={this.state.username}
-            onChange={this.handleChange}
-          />
-          <input
-            type="text"
-            name="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-          <button onSubmit={this.login} />
-        </form>
-      
-    );
-  }
+			.catch((err) => {
+				console.log(err);
+			});
+	};
+	handleChange = (e) => {
+		this.setState({ [e.target.name]: e.target.value });
+	};
+	render() {
+		return (
+			<form onSubmit={this.handleLogin}>
+				<input
+					type="text"
+					name="username"
+					value={this.state.username}
+					onChange={this.handleChange}
+					placeholder="Username..."
+				/>
+				<input
+					type="password"
+					name="password"
+					value={this.state.password}
+					onChange={this.handleChange}
+					placeholder="Password..."
+				/>
+				<button onSubmit={this.handleLogin}>Login</button>
+			</form>
+		);
+	}
 }
 
 export default Login;
