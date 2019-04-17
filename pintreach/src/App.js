@@ -1,10 +1,10 @@
 import "./App.css";
 import React, { Component } from "react";
-import PintreachForm from "./components/PintreachFrom";
-import { Route, NavLink } from "react-router-dom";
-import logo from './components/logo.png';
+import Articles from "./components/Articles";
+import { Route } from "react-router-dom";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import NavBar from "./components/NavBar"
 
 
 class App extends Component {
@@ -22,38 +22,14 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        
-        <ul className="navbar">
-        <ul>
-        <img src={logo} alt="Logo" />
-        </ul>
-          <ul>
-            <NavLink exact to="/login" activeClassName="activeNavButton">
-              Login
-            </NavLink>
-          </ul>
-          <ul>
-            <NavLink exact to="/register" activeClassName="activeNavButton">
-              Register
-            </NavLink>
-          </ul>
-          <ul>
-            <NavLink to="/PintreachForm" activeClassName="activeNavButton">
-              PintreachForm
-            </NavLink>
-          </ul>
-          <ul>
-          <a href="http://pintereachui.netlify.com/">Home</a>
-          </ul>
-
-        </ul>
+      <div className="App">        
+        <NavBar />
         <h1>Know whats going on in your field</h1>
         <Route path="/login" component={Login} />
         <Route path="/register" render={props=><Register {...props}/>} />
         <Route
-          path="/PintreachForm"
-          render={() => <PintreachForm pintreach={this.state.pintreach} />}
+          path="/"
+          render={() => <Articles pintreach={this.state.pintreach} />}
         />
       </div>
     );
