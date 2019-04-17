@@ -31,8 +31,11 @@ class PintreachForm extends React.Component {
 		};
 		axios
 			.post('https://pintereach-buildweek.herokuapp.com/articles', item)
-			.then((res) => console.log(res.status))
-			
+			.then((res) => { 
+			console.log(res.status);
+			this.setState({ articles: res.data.item });
+			})
+	
 			.catch((err) => {
 				throw new Error(err);
 			});
@@ -51,10 +54,11 @@ class PintreachForm extends React.Component {
 			});
 	};
 	handleChanges = (e) => {
-		this.setState({ articles: e.target.value });
+		this.setState({ [e.target.articles]: e.target.value });
+		// this.setState({ articles: e.target.value });
 	};
 
-	addPintreach = (e) => {
+	addPintreach = e => {
 		e.preventDefault();
 		this.addPintreach(this.state.articles);
 	};
