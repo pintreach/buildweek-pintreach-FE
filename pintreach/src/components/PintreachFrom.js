@@ -7,7 +7,11 @@ class PintreachForm extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			articles: []
+			articles: [],
+			img: '',
+			title: '',
+			url: '',
+			user_id: null
 		};
 	}
 	componentDidMount() {
@@ -23,19 +27,17 @@ class PintreachForm extends React.Component {
 			});
 	}
 	addPintreach = (e) => {
-		const article = {
-			img: '',
-			title: '',
-			url: '',
-			userid: ''
-		};
 		axios
-			.post('https://pintereach-buildweek.herokuapp.com/articles', article)
-			.then((res) => { 
-			console.log(res.status);
-			this.setState({ articles: res.data.article });
+			.post('https://pintereach-buildweek.herokuapp.com/articles', {
+				title: this.state.title,
+				img: this.state.img,
+				user_id: null,
+				url: this.state.url
 			})
-	
+			.then((res) => {
+				console.log(res.status);
+				this.setState({ articles: res.data.article });
+			})
 			.catch((err) => {
 				throw new Error(err);
 			});
@@ -46,7 +48,6 @@ class PintreachForm extends React.Component {
 			.delete(`https://pintereach-buildweek.herokuapp.com/articles ${id}`)
 			.then((res) => {
 				this.setState({
-					
 					deletePintreach: res.data.articles
 				});
 			})
@@ -56,10 +57,9 @@ class PintreachForm extends React.Component {
 	};
 	handleChanges = (e) => {
 		this.setState({ [e.target.articles]: e.target.value });
-		
 	};
 
-	addPintreach = e => {
+	addPintreach = (e) => {
 		e.preventDefault();
 		this.addPintreach(this.state.articles);
 	};
@@ -69,8 +69,6 @@ class PintreachForm extends React.Component {
 		this.deletePintreach('');
 	};
 
-
-
 	render() {
 		return (
 			<div className="pintreachForm">
@@ -78,22 +76,22 @@ class PintreachForm extends React.Component {
 					<form onSubmit={this.addPintreach}>
 						<input
 							type="text"
+							name="img"
 							value={this.state.img}
-							pin="pin"
 							onChange={this.handleChanges}
 							placeholder="img"
 						/>
 						<input
 							type="text"
+							name="title"
 							value={this.state.title}
-							pin="pin"
 							onChange={this.handleChanges}
 							placeholder="title"
 						/>
 						<input
 							type="text"
+							name="url"
 							value={this.state.url}
-							pin="pin"
 							onChange={this.handleChanges}
 							placeholder="url"
 						/>
@@ -103,7 +101,6 @@ class PintreachForm extends React.Component {
 						<input
 							type="text"
 							value={this.state.articles.article}
-							pin="pin"
 							onChange={this.handleChanges}
 							placeholder="Delete Article"
 						/>
@@ -111,8 +108,7 @@ class PintreachForm extends React.Component {
 					</form>
 				</div>
 				<div className="pintreachList">
-          {this.state.articles.map(article=>
-            <PintreachList key={article.id} article={article} />)}
+					{this.state.articles.map((article) => <PintreachList key={article.id} article={article} />)}
 				</div>
 			</div>
 		);

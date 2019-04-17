@@ -1,7 +1,7 @@
 import React from "react";
 import "./Pintreach.css";
 function PintreachList(props) {
-  const { title, url, img, id } = props.article;
+  const { title, url, img } = props.article;
   return (
     <div className="article-wrap">
       <h3>{title}</h3>
