@@ -26,82 +26,68 @@ class PintreachForm extends React.Component {
 				throw new Error(err);
 			});
 	}
-	addPintreach = (e) => {
+	addArticle = (e) => {
+		e.preventDefault();
 		axios
 			.post('https://pintereach-buildweek.herokuapp.com/articles', {
 				title: this.state.title,
 				img: this.state.img,
-				user_id: null,
+				user_id: 1,
 				url: this.state.url
 			})
 			.then((res) => {
-				console.log(res.status);
-				this.setState({ articles: res.data.article });
+				console.log(res.status, res.data);
 			})
 			.catch((err) => {
 				throw new Error(err);
 			});
 	};
 
-	deletePintreach = (id) => {
+	deleteArticle = (id, e) => {
+		e.preventDefault();
 		axios
 			.delete(`https://pintereach-buildweek.herokuapp.com/articles ${id}`)
-			.then((res) => {
-				this.setState({
-					deletePintreach: res.data.articles
-				});
-			})
+			.then((res) => console.log(res.status))
 			.catch((err) => {
-				throw new Error(err);
+				console.log(err);
 			});
 	};
-	handleChanges = (e) => {
-		this.setState({ [e.target.articles]: e.target.value });
+	handleChange = (e) => {
+		this.setState({ [e.target.name]: e.target.value });
 	};
-
-	addPintreach = (e) => {
-		e.preventDefault();
-		this.addPintreach(this.state.articles);
-	};
-
-	deletePintreach = (e) => {
-		e.preventDefault();
-		this.deletePintreach('');
-	};
-
 	render() {
 		return (
 			<div className="pintreachForm">
 				<div className="Forms">
-					<form onSubmit={this.addPintreach}>
+					<form onSubmit={this.addArticle}>
 						<input
 							type="text"
 							name="img"
 							value={this.state.img}
-							onChange={this.handleChanges}
+							onChange={this.handleChange}
 							placeholder="img"
 						/>
 						<input
 							type="text"
 							name="title"
 							value={this.state.title}
-							onChange={this.handleChanges}
+							onChange={this.handleChange}
 							placeholder="title"
 						/>
 						<input
 							type="text"
 							name="url"
 							value={this.state.url}
-							onChange={this.handleChanges}
+							onChange={this.handleChange}
 							placeholder="url"
 						/>
-						<button type="">Add new article</button>
+						<button onClick={this.addArticle}>Add new article</button>
 					</form>
 					<form onSubmit={this.deletePintreach}>
 						<input
 							type="text"
 							value={this.state.articles.article}
-							onChange={this.handleChanges}
+							onChange={this.handleChange}
 							placeholder="Delete Article"
 						/>
 						<button type="">Delete </button>
