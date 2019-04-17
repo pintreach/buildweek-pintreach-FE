@@ -4,9 +4,10 @@ function PintreachList(props) {
   const { title, url, img } = props.article;
   return (
     <div className="article-wrap">
+      <img src={img} alt="Article"/>
       <h3>{title}</h3>
       <a href={url}>Read</a>
-      <img src={img} alt="Article"/>
+      <button onClick={props.deleteArticles}>Delete</button>
     </div>
   );
 }

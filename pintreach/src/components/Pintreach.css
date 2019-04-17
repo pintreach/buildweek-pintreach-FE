@@ -1,25 +1,25 @@
 .pintreachForm{
     display: flex;
-   margin: 100px 0;
-   
-   padding: 20px;
+  flex-direction: column-reverse;
 }
 .pintreachList{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center; 
    padding: 20px;
    margin: 20px;
-    background-color: #6195ED;
+    background-color: lightcyan;
     border: 2px solid black;
+    border-radius: 10px;
     align-items: center;
 }
 .Forms{
-    height: 500px;
+    height: 200px;
     border: 2px solid black;
+    border-radius: 10px;
     padding: 20px;
-    margin: 20px 0;
-    background-color: #6195ED;
+    margin: 20px;
+    background-color: lightcyan;
 
 }
 form{
@@ -27,11 +27,24 @@ form{
     margin:  50px 0;
 }
 .article-wrap{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   border-radius: 10px; 
    border: 2px solid black;
    padding: 20px;
    margin: 20px;
+   background-color: silver;
 
 }
 input{
+    height: 20px;
+    font-size: 15px;
     margin: 5px;
+}
+button{
+    color: black;
+    background-color: orange;
+    height: 25px;
+    cursor: pointer;
 }
