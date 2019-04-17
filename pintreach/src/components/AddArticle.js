@@ -9,32 +9,39 @@ class AddArticle extends React.Component {
 			title: '',
 			url: '',
 			user_id: null
-		}
+		};
 	}
 	addArticle = (e) => {
+    const token = localStorage.getItem('authorization');
+    const id = localStorage.getItem('id');
 		e.preventDefault();
 		axios
-			.post('https://pintereach-buildweek.herokuapp.com/articles', {
-				title: this.state.title,
-				img: this.state.img,
-				user_id: 1,
-				url: this.state.url
-			})
+			.post(
+				'https://pintereach-buildweek.herokuapp.com/articles',
+				{
+					title: this.state.title,
+					img: this.state.img,
+					user_id: id,
+					url: this.state.url
+				},
+				{
+					headers: { 'authorization': token }
+				}
+			)
 			.then((res) => {
 				console.log(res.status, res.data);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
-  };
-  handleChange = (e) => {
+	};
+	handleChange = (e) => {
 		this.setState({ [e.target.name]: e.target.value });
 	};
 	render() {
 		return (
-      
 			<div className="Forms">
-        <h3>Add New Article</h3>
+				<h3>Add New Article</h3>
 				<form onSubmit={this.addArticle}>
 					<input
 						type="text"
@@ -60,7 +67,7 @@ class AddArticle extends React.Component {
 					<button onClick={this.addArticle}>Add new article</button>
 				</form>
 			</div>
-		)
+		);
 	}
 }
 

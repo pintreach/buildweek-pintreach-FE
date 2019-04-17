@@ -6,10 +6,12 @@ class Login extends Component {
 		super(props);
 		this.state = {
 			username: '',
-			password: ''
+			password: '',
+			userID: null
 		};
 	}
-	componentDidMount() {}
+	componentDidMount() {
+	}
 	handleLogin = (e) => {
     e.preventDefault();
 		axios
@@ -18,7 +20,8 @@ class Login extends Component {
 				password: this.state.password
 			})
 			.then((res) =>{ 
-        localStorage.setItem('authorization', res.data.token)
+				localStorage.setItem('authorization', res.data.token)
+				localStorage.setItem('id', res.data.id)				
         console.log(res.status)
       })
 			.catch((err) => {

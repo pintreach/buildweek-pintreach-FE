@@ -1,10 +1,10 @@
 import React from "react";
 import "./Pintreach.css";
 
-function PintreachList(props) {
+function Article(props) {
   const { title, url, img, id } = props.article;
   return (
-    <div className="article-wrap">
+    <div className="article-wrap" key={id}>
       <img src={img} alt="Article"/>
       <h3>{title}</h3>
       <a href={url}>Read</a>
@@ -13,4 +13,4 @@ function PintreachList(props) {
   );
 }
 
-export default PintreachList;
+export default Article;
