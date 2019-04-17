@@ -28,7 +28,10 @@ class PintreachForm extends React.Component {
   deleteArticle = id => {
     axios
       .delete(`https://pintereach-buildweek.herokuapp.com/articles/${id}`)
-      .then(res => console.log(res.status))
+	  .then(res => {
+		console.log(res.status)
+		this.setState({ articles: res.data });
+	  })
       .catch(err => {
         console.log(err);
       });
