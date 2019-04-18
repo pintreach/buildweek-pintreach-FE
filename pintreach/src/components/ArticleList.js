@@ -8,7 +8,9 @@ class ArticleList extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			articles: []
+			articles: [],
+			loggedIn: false,
+			toggler: true
 		};
 	}
 	componentDidMount() {
@@ -17,7 +19,7 @@ class ArticleList extends React.Component {
 			const id = localStorage.getItem('id');
 			axios
 				.get(`https://pintereach-buildweek.herokuapp.com/users/${id}/articles`, {
-					headers: { 'authorization': token }
+					headers: { authorization: token }
 				})
 				.then((res) => {
 					console.log(res.data);
@@ -33,9 +35,12 @@ class ArticleList extends React.Component {
 		const token = localStorage.getItem('authorization');
 		axios
 			.delete(`https://pintereach-buildweek.herokuapp.com/articles/${id}`, {
-				headers: { 'authorization': token }
+				headers: { authorization: token }
 			})
-			.then((res) => console.log(res.status))
+			.then((res) => {
+				console.log(res.status);
+				this.setState({toggler: !this.state.toggler})
+			})
 			.catch((err) => {
 				console.log(err);
 			});

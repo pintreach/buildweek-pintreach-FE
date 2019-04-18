@@ -22,7 +22,8 @@ class Login extends Component {
 			.then((res) =>{ 
 				localStorage.setItem('authorization', res.data.token)
 				localStorage.setItem('id', res.data.id)				
-        console.log(res.status)
+				console.log(res.status)
+				this.props.history.push('/')
       })
 			.catch((err) => {
 				console.log(err);
