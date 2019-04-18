@@ -16,7 +16,7 @@ export default function typeHelper(type){
 	} else return null;
 };
 
-{
+
 /* <option defaultValue="medicine">medicine</option>
 <option value="physics">physics</option>
 <option value="biology">biology</option>
@@ -24,4 +24,4 @@ export default function typeHelper(type){
 <option value="chemistry">chemistry</option>
 <option value="environmental science">environmental science</option>
 <option value="computer science">computer science</option> */
-}
+
