@@ -1,54 +1,43 @@
-.pintreachForm{
-    display: flex;
+.pintreachForm {
+  display: flex;
   flex-direction: column-reverse;
 }
-.pintreachList{
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-   padding: 20px;
-   margin: 20px;
-    background-color: lightcyan;
-    border: 2px solid black;
-    border-radius: 10px;
-    align-items: center;
-}
-.Forms{
-    height: 200px;
-    border: 2px solid black;
-    border-radius: 10px;
-    padding: 20px;
-    background-color: lightcyan;
+.pintreachList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+    margin: 10px 0;
+  background-color: #6195ed;
 
+  align-items: center;
 }
-form{
-    padding: 50px 0;
-    margin:  50px 0;
-}
-.article-wrap{
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   border-radius: 10px; 
-   border: 2px solid black;
-   padding: 20px;
-   margin: 20px;
-   background-color: silver;
+.Forms {
+  height: 200px;
 
+  padding: 20px;
+
+  background-color: #6195ed;
 }
-input{
-    height: 20px;
-    font-size: 15px;
-    margin: 5px;
+
+.article-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 20px;
+  margin: 20px;
+  background-color: silver;
 }
-button{
-    color: black;
-    background-color: orange;
-    height: 25px;
-    cursor: pointer;
+input {
+  height: 20px;
+  font-size: 15px;
+  margin: 5px;
 }
-p{
-    border: 1px solid black; 
-    background-color: beige;
-    border-radius: 2px;
+button {
+  height: 25px;
+}
+p {
+  background-color: beige;
+  border-radius: 2px;
 }
