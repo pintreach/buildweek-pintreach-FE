@@ -17,6 +17,7 @@ class ArticleList extends React.Component {
 		const token = localStorage.getItem('authorization');
 		if (localStorage.getItem('id')) {
 			const id = localStorage.getItem('id');
+			this.setState({ loggedIn: !this.state.loggedIn });
 			axios
 				.get(`https://pintereach-buildweek.herokuapp.com/users/${id}/articles`, {
 					headers: { authorization: token }
@@ -39,7 +40,7 @@ class ArticleList extends React.Component {
 			})
 			.then((res) => {
 				console.log(res.status);
-				this.setState({toggler: !this.state.toggler})
+				this.setState({ toggler: !this.state.toggler });
 			})
 			.catch((err) => {
 				console.log(err);
@@ -48,12 +49,17 @@ class ArticleList extends React.Component {
 	render() {
 		return (
 			<div className="pintreachForm">
-				<AddArticle />
-				<div className="pintreachList">
+			{this.state.loggedIn ? (
+				<>
+					<AddArticle />
+					<div className="pintreachList">
 					{this.state.articles.map((article) => (
-						<Article deleteArticle={this.deleteArticle} key={article.id} article={article} />
-					))}
+						<Article deleteArticle={this.deleteArticle} key={article.id} article={article} />))}
 				</div>
+				</>
+			):(
+        <h3>Please Log In to See Your Articles</h3>
+			)}				
 			</div>
 		);
 	}
