@@ -25,7 +25,6 @@ class ArticleList extends React.Component {
 				.then((res) => {
 					console.log(res.data);
 					this.setState({ articles: res.data });
-					console.log(this.state);
 				})
 				.catch((err) => {
 					console.log(err);
@@ -44,6 +43,7 @@ class ArticleList extends React.Component {
 			.then((res) => {
 				console.log(res.status);
 				this.setState({ toggler: !this.state.toggler });
+				window.location.reload();
 			})
 			.catch((err) => {
 				console.log(err);

@@ -18,7 +18,6 @@ class PintreachForm extends React.Component {
       .then(res => {
         console.log(res.data);
         this.setState({ articles: res.data });
-        console.log(this.state);
       })
       .catch(err => {
         console.log(err);

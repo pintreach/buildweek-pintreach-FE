@@ -30,7 +30,9 @@ class AddArticle extends React.Component {
 			)
 			.then((res) => {
 				console.log(res.status, res.data);
+				this.setState({url:'', title: ''})				
 				this.props.toggler();
+				window.location.reload();
 			})
 			.catch((err) => {
 				console.log(err);
