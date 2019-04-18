@@ -1,33 +1,35 @@
 import React from 'react';
-import logo from '../components/logo.png';
+import logos from '../components/logos.png';
 import { NavLink } from "react-router-dom";
 
 
 const Navbar = () => {
 	return (
-		<ul className="navbar">
-			<ul>
-				<img src={logo} alt="Logo" />
-			</ul>
-			<ul>
+			<div className="navbar">
+		<ul> 
+			<div>
+				<img src={logos} alt="Logo" />
+			</div>
+			<div>
 				<NavLink exact to="/login" activeClassName="activeNavButton">
 					Login
 				</NavLink>
-			</ul>
-			<ul>
+			</div>
+			<div>
 				<NavLink exact to="/register" activeClassName="activeNavButton">
 					Register
 				</NavLink>
-			</ul>
-			<ul>
+			</div>
+			<div>
 				<NavLink to="/" activeClassName="activeNavButton">
 					Articles
 				</NavLink>
-			</ul>
-			<ul>
+			</div>
+			<div>
 				<a href="http://pintereachui.netlify.com/">Home</a>
+			</div>
 			</ul>
-		</ul>
+		</div>
 	);
 };
 
