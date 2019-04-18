@@ -1,3 +1,4 @@
+
 import React from 'react';
 import logos from '../components/logos.png';
 import { NavLink } from "react-router-dom";
@@ -14,6 +15,7 @@ const Navbar = () => {
 		window.location.reload();
 	}	
 	return (
+		
 		<ul className="navbar">
 			<div>
 				<img src={logos} alt="Logo" />
@@ -44,8 +46,9 @@ const Navbar = () => {
 			<div>
 				<a href="http://pintereachui.netlify.com/">Home</a>
 			</div>
+			</div>
 			</ul>
-		</div>
+		
 	);
 };
 
