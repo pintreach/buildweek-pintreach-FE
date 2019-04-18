@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 class AddArticle extends React.Component {
-	constructor() {
+	constructor(props) {
 		super();
 		this.state = {
 			type: '',
@@ -11,8 +11,8 @@ class AddArticle extends React.Component {
 		};
 	}
 	addArticle = (e) => {
-    const token = localStorage.getItem('authorization');
-    const id = localStorage.getItem('id');
+		const token = localStorage.getItem('authorization');
+		const id = localStorage.getItem('id');
 		e.preventDefault();
 		axios
 			.post(
@@ -24,11 +24,12 @@ class AddArticle extends React.Component {
 					type: this.state.type
 				},
 				{
-					headers: { 'authorization': token }
+					headers: { authorization: token }
 				}
 			)
 			.then((res) => {
 				console.log(res.status, res.data);
+				this.props.toggler();
 			})
 			.catch((err) => {
 				console.log(err);
@@ -56,20 +57,20 @@ class AddArticle extends React.Component {
 						onChange={this.handleChange}
 						placeholder="url"
 					/>
-          <select
-                  onChange={this.handleChange}
-                  name='type'
-                  value={this.state.type}
-                  className='review__modal--form--rating'
-                >
-                  <option defaultValue='medicine'>medicine</option>
-                  <option value='physics'>physics</option>
-                  <option value='biology'>biology</option>
-                  <option value='economics'>economics</option>
-                  <option value='chemistry'>chemistry</option>
-                  <option value='environmental science'>environmental science</option>
-                  <option value='computer science'>computer science</option>
-                </select>
+					<select
+						onChange={this.handleChange}
+						name="type"
+						value={this.state.type}
+						className="review__modal--form--rating"
+					>
+						<option defaultValue="medicine">medicine</option>
+						<option value="physics">physics</option>
+						<option value="biology">biology</option>
+						<option value="economics">economics</option>
+						<option value="chemistry">chemistry</option>
+						<option value="environmental science">environmental science</option>
+						<option value="computer science">computer science</option>
+					</select>
 					<button onClick={this.addArticle}>Add new article</button>
 				</form>
 			</div>
