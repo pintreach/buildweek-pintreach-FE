@@ -8,9 +8,10 @@ const Navbar = () => {
 	if (localStorage.getItem('id')) {
 		id = localStorage.getItem('id');
 	}
-	function logout(){
+	const logout=()=>{
 		localStorage.removeItem('id');
 		localStorage.removeItem('authorization');
+		window.location.reload();
 	}	
 	return (
 		<ul className="navbar">
