@@ -5,10 +5,10 @@ class Register extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			username: 'test',
-			password: 'test',
-			name: 'test',
-			email: 'test@test.com'
+			username: '',
+			password: '',
+			name: '',
+			email: ''
 		};
 	}
 	componentDidMount() {}
