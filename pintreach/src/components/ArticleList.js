@@ -44,6 +44,7 @@ class ArticleList extends React.Component {
 			.then((res) => {
 				console.log(res.status);
 				this.setState({ toggler: !this.state.toggler });
+				window.location.reload();
 			})
 			.catch((err) => {
 				console.log(err);
