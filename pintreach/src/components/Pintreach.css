@@ -36,6 +36,7 @@ input {
 }
 button {
   height: 25px;
+  cursor: pointer;
 }
 p {
   background-color: beige;
