@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import typeHelper from './typeHelper';
 
 class AddArticle extends React.Component {
 	constructor(props) {
@@ -21,7 +22,7 @@ class AddArticle extends React.Component {
 					title: this.state.title,
 					url: this.state.url,
 					user_id: id,
-					type: this.state.type
+					type: typeHelper(this.state.type)
 				},
 				{
 					headers: { authorization: token }
