@@ -16,14 +16,15 @@ const Navbar = () => {
 	}	
 	return (
 		
-		<ul className="navbar">
-			<div>
-				<img src={logos} alt="Logo" />
-			</div>
-			<div>
+			<div className="navbar">
+		<ul>
+			
+				<img className="img" src={logos} alt="Logo" />
+			
+			<div className="nav">
 			{!id ? (
 			<>
-				<div>
+				<div className="nav">
 				<NavLink exact to="/login" activeClassName="activeNavButton">
 					Login
 				</NavLink>
@@ -48,6 +49,7 @@ const Navbar = () => {
 			</div>
 			</div>
 			</ul>
+			</div>
 		
 	);
 };
