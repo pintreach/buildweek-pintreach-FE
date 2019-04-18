@@ -6,22 +6,25 @@ class Register extends Component {
 		super(props);
 		this.state = {
 			username: 'test',
-      password: 'test',
-      name: 'test',
-      email: 'test@test.com'
+			password: 'test',
+			name: 'test',
+			email: 'test@test.com'
 		};
 	}
 	componentDidMount() {}
 	handleRegister = (e) => {
-    e.preventDefault();
+		e.preventDefault();
 		axios
 			.post('https://pintereach-buildweek.herokuapp.com/auth/register', {
 				username: this.state.username,
-        password: this.state.password,
-        name: this.state.name,
+				password: this.state.password,
+				name: this.state.name,
 				email: this.state.email
 			})
-			.then((res) =>console.log(res.status))
+			.then((res) => {
+				console.log(res.status);
+				this.props.history.push('/login');
+			})
 			.catch((err) => console.log(err));
 	};
 	handleChange = (e) => {
@@ -37,7 +40,7 @@ class Register extends Component {
 					onChange={this.handleChange}
 					placeholder="Username..."
 				/>
-        <input
+				<input
 					type="text"
 					name="name"
 					value={this.state.name}

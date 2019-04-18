@@ -8,16 +8,19 @@ class ArticleList extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			articles: []
+			articles: [],
+			loggedIn: false,
+			toggler: true
 		};
 	}
 	componentDidMount() {
 		const token = localStorage.getItem('authorization');
 		if (localStorage.getItem('id')) {
 			const id = localStorage.getItem('id');
+			this.setState({ loggedIn: true });
 			axios
 				.get(`https://pintereach-buildweek.herokuapp.com/users/${id}/articles`, {
-					headers: { 'authorization': token }
+					headers: { authorization: token }
 				})
 				.then((res) => {
 					console.log(res.data);
@@ -29,13 +32,19 @@ class ArticleList extends React.Component {
 				});
 		}
 	}
+	toggler = () => {
+		this.setState({toggler: !this.state.toggler})
+	}
 	deleteArticle = (id) => {
 		const token = localStorage.getItem('authorization');
 		axios
 			.delete(`https://pintereach-buildweek.herokuapp.com/articles/${id}`, {
-				headers: { 'authorization': token }
+				headers: { authorization: token }
 			})
-			.then((res) => console.log(res.status))
+			.then((res) => {
+				console.log(res.status);
+				this.setState({ toggler: !this.state.toggler });
+			})
 			.catch((err) => {
 				console.log(err);
 			});
@@ -43,12 +52,17 @@ class ArticleList extends React.Component {
 	render() {
 		return (
 			<div className="pintreachForm">
-				<AddArticle />
-				<div className="pintreachList">
+			{this.state.loggedIn ? (
+				<>
+					<AddArticle toggler={this.toggler}/>
+					<div className="pintreachList">
 					{this.state.articles.map((article) => (
-						<Article deleteArticle={this.deleteArticle} key={article.id} article={article} />
-					))}
+						<Article deleteArticle={this.deleteArticle} key={article.id} article={article} />))}
 				</div>
+				</>
+			):(
+        <h3>Please Log In to See Your Articles</h3>
+			)}				
 			</div>
 		);
 	}
