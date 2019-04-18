@@ -5,32 +5,33 @@
 .pintreachList {
   display: flex;
   flex-wrap: wrap;
-
   justify-content: center;
   padding: 20px;
   margin: 10px 0;
   background-color: #6195ed;
-
   align-items: center;
 }
+
 .Forms {
   height: 200px;
   padding: 20px;
+  margin: 20px 0 0 0;
   background-color: #6195ed;
 }
 
 .article-wrap {
   display: flex;
   flex-direction: column;
-  width: 75%;
+  justify-content: space-evenly;
+  width: 300px;
   height: 300px;
   align-items: center;
   padding: 15px;
-  margin: 100px 100px 0  0;
+  
   background-color: silver;
+  margin: 10px 10px;
+  
 }
-
-
 
 input {
   height: 20px;
@@ -45,5 +46,7 @@ p {
   background-color: beige;
   border-radius: 2px;
 }
-img {
+
+h3{
+    text-align: justify;
 }
