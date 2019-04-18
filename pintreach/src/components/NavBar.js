@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../components/logo.png';
+import logos from '../components/logos.png';
 import { NavLink } from "react-router-dom";
 
 
@@ -15,35 +15,37 @@ const Navbar = () => {
 	}	
 	return (
 		<ul className="navbar">
-			<ul>
-				<img src={logo} alt="Logo" />
-			</ul>
+			<div>
+				<img src={logos} alt="Logo" />
+			</div>
+			<div>
 			{!id ? (
 			<>
-				<ul>
-					<NavLink exact to="/login" activeClassName="activeNavButton">
-						Login
-					</NavLink>
-				</ul>
-				<ul>
-					<NavLink exact to="/register" activeClassName="activeNavButton">
-						Register
-					</NavLink>
-				</ul>
+				<div>
+				<NavLink exact to="/login" activeClassName="activeNavButton">
+					Login
+				</NavLink>
+			</div>
+			<div>
+				<NavLink exact to="/register" activeClassName="activeNavButton">
+					Register
+				</NavLink>
+			</div>
 			</>):(
         <div onClick={()=>logout()} href='#' className="activeNavButton">
 					Logout
 				</div>
 			)}			
-			<ul>
+			<div>
 				<NavLink to="/" activeClassName="activeNavButton">
 					Articles
 				</NavLink>
-			</ul>
-			<ul>
+			</div>
+			<div>
 				<a href="http://pintereachui.netlify.com/">Home</a>
+			</div>
 			</ul>
-		</ul>
+		</div>
 	);
 };
 
