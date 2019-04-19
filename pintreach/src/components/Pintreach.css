@@ -1,7 +1,6 @@
 .pintreachForm {
   box-sizing: border-box;
   width: 100%;
-  border: 1px solid blue;
 }
 .pintreachList {
   box-sizing: border-box;
@@ -10,7 +9,7 @@
   justify-content: center;
   width: 100%;
   padding: 20px;
-  margin: 10px 0;
+  margin: 0;
   background-color: #6195ed;
   align-items: center;
   border: 1px solid red;
@@ -34,8 +33,7 @@
   padding: 15px;
   border: 1px solid black;
   background-color: silver;
-  margin: 10px 10px;
-  
+  margin: 10px;  
 }
 
 input {
@@ -57,5 +55,15 @@ h3{
 }
 
 .card-img {
-  width: 50%
+  width: 50%;
+  margin-top: 15px;
+}
+
+@media (max-width: 800px){
+  .article-wrap {
+    width: 80%;
+  }
+  .card-img {
+    width: 25%;
+  }
 }
