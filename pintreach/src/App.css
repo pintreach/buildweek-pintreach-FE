@@ -1,5 +1,4 @@
-.App {
-  
+.App {  
   text-align: center;
   background-color: white;
   padding: 2px 0 0 0;
@@ -7,14 +6,12 @@
 h1 {
   font-family: "Roboto", sans-serif;
 }
-
-
-
 a {
+  display: flex;
+  align-items: center;
   color: white;
   font-size: 20px;
   text-decoration: none;
-  
 }
 ul {
   display: flex;
@@ -28,18 +25,28 @@ ul {
   z-index: 2;
   cursor: pointer;
   width: 100%;
-  
 }
-
 .nav {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-flow: wrap;
   align-items: center;
   padding: 0 20px;
   background-color: #6195ed;
 }
 
+.nav-links {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  width: 70%;
+}
+@media (max-width: 800px){
+  .nav-links{
+    width: 100%;
+    margin-bottom: 25px;
+  }
+}
 .header {
   display: flex;
   padding: 100px 20px 0 20px;

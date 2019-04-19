@@ -1,13 +1,15 @@
 .pintreachForm {
-  display: flex;
-  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
 }
 .pintreachList {
+  box-sizing: border-box;
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   justify-content: center;
+  width: 100%;
   padding: 20px;
-  margin: 10px 0;
+  margin: 0;
   background-color: #6195ed;
   align-items: center;
 }
@@ -20,17 +22,16 @@
 }
 
 .article-wrap {
+  box-sizing: border-box;
   display: flex;
-  flex-direction: column;
+  flex-flow: column;
   justify-content: space-evenly;
-  width: 300px;
+  width: 25%;
   height: 300px;
   align-items: center;
   padding: 15px;
-  
   background-color: silver;
-  margin: 10px 10px;
-  
+  margin: 10px;  
 }
 
 input {
@@ -49,4 +50,18 @@ p {
 
 h3{
     text-align: justify;
+}
+
+.card-img {
+  width: 50%;
+  margin-top: 15px;
+}
+
+@media (max-width: 800px){
+  .article-wrap {
+    width: 65%;
+  }
+  .card-img {
+    width: 30%;
+  }
 }
