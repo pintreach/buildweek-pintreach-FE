@@ -40,11 +40,11 @@ ul {
   flex-flow: row;
   justify-content: space-around;
   width: 70%;
-  border: 1px solid red;
 }
 @media (max-width: 800px){
   .nav-links{
     width: 100%;
+    margin-bottom: 25px;
   }
 }
 .header {
