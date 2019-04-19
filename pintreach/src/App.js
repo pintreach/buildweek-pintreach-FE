@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { Component } from "react";
-import Articles from "./components/ArticleList";
+import ArticleList from "./components/ArticleList";
 import { Route } from "react-router-dom";
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -34,7 +34,7 @@ class App extends Component {
         <Route
           exact
           path="/"
-          render={() => <Articles pintreach={this.state.pintreach} />}
+          render={() => <ArticleList pintreach={this.state.pintreach} />}
         />
       </div>
     );
